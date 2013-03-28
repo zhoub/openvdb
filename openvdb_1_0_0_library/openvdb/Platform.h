@@ -83,6 +83,8 @@
 
 /// Visual C++ does not have stdint.h which defines types like uint64_t.
 /// So for portability we instead include boost/cstdint.hpp.
+
+#if _MSC_VER < 1600
 #include <boost/cstdint.hpp>
 using boost::int8_t;
 using boost::int16_t;
@@ -92,6 +94,9 @@ using boost::uint8_t;
 using boost::uint16_t;
 using boost::uint32_t;
 using boost::uint64_t;
+#else
+#include <cstdint>
+#endif
 
 /// Helper macros for defining library symbol visibility
 #ifdef OPENVDB_EXPORT
