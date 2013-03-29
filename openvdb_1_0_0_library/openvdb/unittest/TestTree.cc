@@ -808,7 +808,7 @@ TestTree::testIterators()
 void
 TestTree::testIO()
 {
-    const char* filename = "/tmp/test.dbg";
+    const char* filename = "test.dbg";
     boost::shared_ptr<const char> scopedFile(filename, ::remove);
     {
         ValueType background=5.0f;

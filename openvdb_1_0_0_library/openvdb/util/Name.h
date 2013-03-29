@@ -47,9 +47,13 @@ inline Name
 readString(std::istream& is)
 {
     uint32_t size;
+    std::string buffer;
     is.read(reinterpret_cast<char*>(&size), sizeof(uint32_t));
-    std::string buffer(size, ' ');
-    is.read(&buffer[0], size);
+    if (size)
+    {
+        buffer.resize(size, ' ');
+        is.read(&buffer[0], size);
+    }
     return buffer;
 }
 

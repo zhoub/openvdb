@@ -51,7 +51,7 @@ public:
         grid->setName("TestParticlesToLevelSet");
         openvdb::GridPtrVec grids;
         grids.push_back(grid);
-        openvdb::io::File file("/tmp/" + fileName + ".vdb");
+        openvdb::io::File file(fileName + ".vdb");
         file.write(grids);
         file.close();
     }

@@ -393,8 +393,13 @@ operator<<(std::ostream& ostr, const Metadata& metadata)
 typedef TypedMetadata<bool>            BoolMetadata;
 typedef TypedMetadata<double>          DoubleMetadata;
 typedef TypedMetadata<float>           FloatMetadata;
+#if _MSC_VER < 1600
 typedef TypedMetadata<boost::int32_t>  Int32Metadata;
 typedef TypedMetadata<boost::int64_t>  Int64Metadata;
+#else
+typedef TypedMetadata<int32_t>         Int32Metadata;
+typedef TypedMetadata<int64_t>         Int64Metadata;
+#endif
 typedef TypedMetadata<Vec2d>           Vec2DMetadata;
 typedef TypedMetadata<Vec2i>           Vec2IMetadata;
 typedef TypedMetadata<Vec2s>           Vec2SMetadata;

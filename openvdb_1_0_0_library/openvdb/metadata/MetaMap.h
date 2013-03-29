@@ -214,7 +214,9 @@ MetaMap::getValidTypedMetadata(const Name &name) const
     // cast. This is slower than doing a dynamic_pointer_cast, but is safer when
     // pointers cross dso boundaries.
     typename TypedMetadata<T>::Ptr m;
-    if (iter->second->typeName() == TypedMetadata<T>::staticTypeName()) {
+    const std::string &typeName = iter->second->typeName();
+    const std::string &staticTypeName = TypedMetadata<T>::staticTypeName();
+    if (typeName == staticTypeName) {
         m = boost::static_pointer_cast<TypedMetadata<T>, Metadata>(iter->second);
     }
     if (!m) OPENVDB_THROW(TypeError, "Invalid type for metadata " << name);

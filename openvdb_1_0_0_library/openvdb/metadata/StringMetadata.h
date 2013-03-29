@@ -54,8 +54,11 @@ template<>
 inline void
 StringMetadata::readValue(std::istream& is, Index32 size)
 {
-    mValue.resize(size, '\0');
-    is.read(&mValue[0], size);
+    if (size)
+    {
+        mValue.resize(size, '\0');
+        is.read(&mValue[0], size);
+    }
 }
 
 template<>
