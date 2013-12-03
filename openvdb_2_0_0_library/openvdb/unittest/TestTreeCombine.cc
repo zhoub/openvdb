@@ -644,30 +644,30 @@ TestTreeCombine::testCsg()
 #endif
     refTree = Local::readFile(testDir + "small_union.vdb2");
     outTree = visitCsg(*smallTree1, *smallTree2, *refTree, Local::visitorUnion);
-    //Local::writeFile(outTree, "/tmp/small_union_out.vdb2");
+    //Local::writeFile(outTree, "small_union_out.vdb2");
     refTree = Local::readFile(testDir + "large_union.vdb2");
     outTree = visitCsg(*largeTree1, *largeTree2, *refTree, Local::visitorUnion);
-    //Local::writeFile(outTree, "/tmp/large_union_out.vdb2");
+    //Local::writeFile(outTree, "large_union_out.vdb2");
 
 #if TEST_CSG_VERBOSE
     std::cerr << "\n<intersection>\n";
 #endif
     refTree = Local::readFile(testDir + "small_intersection.vdb2");
     outTree = visitCsg(*smallTree1, *smallTree2, *refTree, Local::visitorIntersect);
-    //Local::writeFile(outTree, "/tmp/small_intersection_out.vdb2");
+    //Local::writeFile(outTree, "small_intersection_out.vdb2");
     refTree = Local::readFile(testDir + "large_intersection.vdb2");
     outTree = visitCsg(*largeTree1, *largeTree2, *refTree, Local::visitorIntersect);
-    //Local::writeFile(outTree, "/tmp/large_intersection_out.vdb2");
+    //Local::writeFile(outTree, "large_intersection_out.vdb2");
 
 #if TEST_CSG_VERBOSE
     std::cerr << "\n<difference>\n";
 #endif
     refTree = Local::readFile(testDir + "small_difference.vdb2");
     outTree = visitCsg(*smallTree1, *smallTree2, *refTree, Local::visitorDiff);
-    //Local::writeFile(outTree, "/tmp/small_difference_out.vdb2");
+    //Local::writeFile(outTree, "small_difference_out.vdb2");
     refTree = Local::readFile(testDir + "large_difference.vdb2");
     outTree = visitCsg(*largeTree1, *largeTree2, *refTree, Local::visitorDiff);
-    //Local::writeFile(outTree, "/tmp/large_difference_out.vdb2");
+    //Local::writeFile(outTree, "large_difference_out.vdb2");
 }
 
 

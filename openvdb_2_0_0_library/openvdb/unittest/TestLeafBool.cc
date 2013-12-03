@@ -485,7 +485,7 @@ TestLeafBool::testBoolTree()
     GridPtrVec grids;
     grids.push_back(inGrid);
     grids.push_back(outGrid);
-    io::File vdbFile("/tmp/bool_tree.vdb2");
+    io::File vdbFile("bool_tree.vdb2");
     vdbFile.write(grids);
     vdbFile.close();
 #endif
@@ -531,7 +531,7 @@ TestLeafBool::testBoolTree()
 //     GridPtrVec grids;
 //     grids.push_back(copyOfGrid);
 //     grids.push_back(grid);
-//     io::File vdbFile("/tmp/TestLeafBool::testFilter.vdb2");
+//     io::File vdbFile("TestLeafBool::testFilter.vdb2");
 //     vdbFile.write(grids);
 //     vdbFile.close();
 // #endif

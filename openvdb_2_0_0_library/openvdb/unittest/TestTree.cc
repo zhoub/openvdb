@@ -830,7 +830,7 @@ TestTree::testIterators()
 void
 TestTree::testIO()
 {
-    const char* filename = "/tmp/test.dbg";
+    const char* filename = "test.dbg";
     boost::shared_ptr<const char> scopedFile(filename, ::remove);
     {
         ValueType background=5.0f;
@@ -1587,7 +1587,7 @@ TestTree::testTopologyIntersection()
 
     {// Test based on boolean grids
         openvdb::CoordBBox big(  openvdb::Coord(-9), openvdb::Coord(10));
-        openvdb::CoordBBox small(openvdb::Coord( 1), openvdb::Coord(10));
+        openvdb::CoordBBox small_( openvdb::Coord( 1), openvdb::Coord(10));
        
         openvdb::BoolGrid::Ptr gridBig = openvdb::BoolGrid::create(false);
         gridBig->fill(big, true/*value*/, true /*make active*/);
@@ -1595,7 +1595,7 @@ TestTree::testTopologyIntersection()
         CPPUNIT_ASSERT_EQUAL((20 * 20 * 20), int(gridBig->activeVoxelCount()));
 
         openvdb::BoolGrid::Ptr gridSmall = openvdb::BoolGrid::create(false);
-        gridSmall->fill(small, true/*value*/, true /*make active*/);
+        gridSmall->fill(small_, true/*value*/, true /*make active*/);
         CPPUNIT_ASSERT_EQUAL(0, int(gridSmall->tree().activeTileCount()));
         CPPUNIT_ASSERT_EQUAL((10 * 10 * 10), int(gridSmall->activeVoxelCount()));
        

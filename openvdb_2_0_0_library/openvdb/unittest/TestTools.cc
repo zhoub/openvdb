@@ -576,7 +576,7 @@ TestTools::testLevelSetAdvect()
         FrameWriter(int dim, GridT::Ptr grid) : mFrame(0), mDim(dim), mGrid(grid) {}
         void operator()(const char* name, float time, size_t n) {
             std::ostringstream ostr;
-            ostr << "/usr/pic1/tmp/" << name << "_" << mDim << "_" << mFrame << ".vdb";
+            ostr << "/usr/pic1" << name << "_" << mDim << "_" << mFrame << ".vdb";
             openvdb::io::File file(ostr.str());
             openvdb::GridPtrVec grids;
             grids.push_back(mGrid);

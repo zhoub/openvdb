@@ -377,7 +377,7 @@ TestLevelSetRayIntersector::stats()
         }
         timer.stop();
 
-        film.savePPM("/tmp/sphere_serial");
+        film.savePPM("sphere_serial");
         stats.print("First hit");
         hist.print("First hit");
     }

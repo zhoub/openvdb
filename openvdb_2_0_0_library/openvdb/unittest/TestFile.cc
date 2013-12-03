@@ -724,7 +724,7 @@ TestFile::testGridNaming()
         gridVec[n]->insertMeta("index", Int32Metadata(n));
     }
 
-    const char* filename = "/tmp/testGridNaming.vdb2";
+    const char* filename = "testGridNaming.vdb2";
     boost::shared_ptr<const char> scopedFile(filename, ::remove);
 
     // Test first with grid instancing disabled, then with instancing enabled.
@@ -849,7 +849,7 @@ TestFile::testEmptyFile()
     using namespace openvdb;
     using namespace openvdb::io;
 
-    const char* filename = "/tmp/testEmptyFile.vdb2";
+    const char* filename = "testEmptyFile.vdb2";
     boost::shared_ptr<const char> scopedFile(filename, ::remove);
 
     {
@@ -879,7 +879,7 @@ TestFile::testEmptyGridIO()
     typedef Int32Grid GridType;
     typedef GridType::TreeType TreeType;
 
-    const char* filename = "/tmp/something.vdb2";
+    const char* filename = "something.vdb2";
     boost::shared_ptr<const char> scopedFile(filename, ::remove);
 
     File file(filename);
@@ -1308,7 +1308,7 @@ TestFile::testReadGridMetadata()
 
     openvdb::initialize();
 
-    const char* filename = "/tmp/testReadGridMetadata.vdb2";
+    const char* filename = "testReadGridMetadata.vdb2";
     boost::shared_ptr<const char> scopedFile(filename, ::remove);
 
     // Create grids
@@ -1782,7 +1782,7 @@ TestFile::testNameIterator()
     // Register types.
     openvdb::initialize();
 
-    const char* filename = "/tmp/testNameIterator.vdb2";
+    const char* filename = "testNameIterator.vdb2";
     boost::shared_ptr<const char> scopedFile(filename, ::remove);
 
     // Write the grids out to a file.
@@ -1854,7 +1854,7 @@ TestFile::testCompression()
     grids.push_back(lsGrid);
     grids.push_back(fogGrid);
 
-    const char* filename = "/tmp/testCompression.vdb2";
+    const char* filename = "testCompression.vdb2";
     boost::shared_ptr<const char> scopedFile(filename, ::remove);
 
     size_t uncompressedSize = 0;

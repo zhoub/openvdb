@@ -365,7 +365,7 @@ TestMeshToVolume::testConversion()
     FloatGrid::Ptr grid = tools::meshToLevelSet<FloatGrid>(
         *math::Transform::createLinearTransform(), points, quads);
 
-    //io::File("/tmp/cube.vdb").write(GridPtrVec(1, grid));
+    //io::File("cube.vdb").write(GridPtrVec(1, grid));
 
     CPPUNIT_ASSERT(grid.get() != NULL);
     CPPUNIT_ASSERT_EQUAL(int(GRID_LEVEL_SET), int(grid->getGridClass()));
