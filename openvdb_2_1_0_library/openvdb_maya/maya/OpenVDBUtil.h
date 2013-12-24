@@ -34,7 +34,21 @@
 #ifndef OPENVDB_MAYA_UTIL_HAS_BEEN_INCLUDED
 #define OPENVDB_MAYA_UTIL_HAS_BEEN_INCLUDED
 
+#include <cmath>
+
+#include <iostream>
+#include <sstream>
+#include <limits>
+
+#include <boost/algorithm/string.hpp>
+#include <boost/lexical_cast.hpp>
+
 #include "OpenVDBData.h"
+
+#include <Windows.h>
+#include <GL/glew.h>
+#include <GL/GL.h>
+#include <GL/GLU.h>
 
 #include <openvdb/openvdb.h>
 #include <openvdb/Types.h>
@@ -42,6 +56,9 @@
 #include <openvdb/tools/VolumeToMesh.h>
 #include <openvdb/tools/LevelSetUtil.h>
 #include <openvdb/util/Formats.h> // printBytes
+#include <openvdb/math/Vec3.h>
+
+
 
 #include <tbb/tick_count.h>
 
@@ -51,24 +68,7 @@
 #include <maya/MDataHandle.h>
 #include <maya/MFnPluginData.h>
 
-#if defined(__APPLE__) || defined(MACOSX)
-#include <OpenGL/gl.h>
-#include <OpenGL/glu.h>
-#else
-#include <GL/gl.h>
-#include <GL/glu.h>
-#endif
-
-#include <iostream>
-#include <sstream>
-#include <limits>
-
-#include <boost/algorithm/string.hpp>
-#include <boost/lexical_cast.hpp>
-
-
 ////////////////////////////////////////
-
 
 namespace openvdb_maya {
 
@@ -188,7 +188,7 @@ public:
     void setFragShader(const std::string&);
 
     void build();
-    void build(const std::vector<GLchar*>& attributes);
+    void build(const std::vector<char*>& attributes);
 
     void startShading() const;
     void stopShading() const;
@@ -196,7 +196,7 @@ public:
     void clear();
 
 private:
-    GLuint mProgram, mVertShader, mFragShader;
+    unsigned int mProgram, mVertShader, mFragShader;
 };
 
 ////////////////////////////////////////
@@ -583,7 +583,7 @@ public:
                 insertPoint(pos, index);
                 ++index;
 
-                int r = int(std::floor(mVoxelsPerLeaf / activeVoxels));
+                int r = int(floor((float)mVoxelsPerLeaf / activeVoxels));
                 for (int i = 1, I = mVoxelsPerLeaf - 2; i < I; ++i) {
                     pos = mTransform->indexToWorld(coords[i * r]);
                     insertPoint(pos, index);

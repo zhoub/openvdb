@@ -30,8 +30,21 @@
 
 /// @author FX R&D OpenVDB team
 
-
 #include "OpenVDBUtil.h"
+
+#if defined(__APPLE__) || defined(MACOSX)
+#include <OpenGL/gl.h>
+#include <OpenGL/glu.h>
+#elif defined(_WIN32)
+#include <Windows.h>
+#include <GL/GL.h>
+#include <GL/GLU.h>
+#else
+#include <GL/GL.h>
+#include <GL/GLU.h>
+#endif
+
+
 
 #include <maya/MGlobal.h>
 

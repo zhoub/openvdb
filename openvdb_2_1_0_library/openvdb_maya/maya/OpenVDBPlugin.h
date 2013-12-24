@@ -37,12 +37,13 @@
 #include <maya/MString.h>
 #include <maya/MTypeId.h>
 #include <maya/MPxData.h>
+#include <maya/MPxNode.h>
 
 #define MNoVersionString
-#include <maya/MFnPlugin.h>
 
 ////////////////////////////////////////
 
+class MFnPlugin ;
 
 namespace openvdb_maya {
 
