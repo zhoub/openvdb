@@ -19,7 +19,9 @@ SET(OPENVDB_SOURCE_FILES
 SET(OPENVDB_HEADER_FILES
 	Exceptions.h
 	Grid.h
+	Metadata.h
 	Platform.h
+    PlatformConfig.h
 	Types.h
 	openvdb.h
 	version.h)
